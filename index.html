@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="card">
+                <div class="img">
+                    <div id="spans">
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                    </div>
+                </div>
+                <h3 class="songinfo"> Song Title</h3>
+                <h4 id="artistname"></h4>
+                <div class="playbar">
+                    <i class="fa-solid fa-repeat"></i>
+                    <i class="fa-solid fa-backward-step" id="previous"></i>
+                    <img src="img/play.svg" alt="" id="play" class="invert">
+                    <i class="fa-solid fa-forward-step" id="next"></i>
+                    <!-- <i class="fa-solid fa-volume-low"></i> -->
+                    <div class="timevol">
+                        <div class="volume">
+                            <div class="range">
+                                <input type="range" name="volume" id="" class="volume-input"
+                                    onmouseenter="displayVolumebar();" onmouseleave="displayNoneVolumebar();">
+                                <div class="volume-icon">
+                                    <img src="img/volume.svg" alt="" class="invert volume-svg"
+                                        onmouseenter="displayVolumebar();" onmouseleave="displayNoneVolumebar();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="seekbar">
+                    <span class="songtime">00:00</span>
+                    <div class="seek">
+                        <div class="progress-bar" id="progress"></div>
+                        <div class="timescroll circle"></div>
+                    </div>
+                    <span class="songtime1">00:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="main">
+                <div class="nav">
+                    <div class="logo">MX Tune</div>
+                    <ul>
+                        <input type="text" id="searchbar">
+                        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                        <li><i class="fa-regular fa-user"></i></li>
+                        <li>EN</li>
+                    </ul>
+                </div>
+                <div class="artcon">
+                    <div class="songList">
+                        <div class="back" onclick="BackAlbum();">
+                            <i class="fa-solid fa-circle-left"></i>
+                        </div>
+                        <div class="library">
+                            <img class="invert" src="img/playlist.svg" alt="">
+                            <p>
+                                Your Library
+                            </p>
+                        </div>
+                        <ul>
+                        </ul>
+                    </div>
+
+
+
+
+                    <div class="homepg">
+                        <h1 class="animated-heading">Play Your <br>Beloved Music</h1>
+                        <p>Selected Music From Various genres, artists and composers.</p>
+                        <p>Play now completely Free and convenient</p>
+                        <div class="playbtn">
+                            <img src="img/play.svg" alt="" id="play1">
+                        </div>
+                        <h2>Popular Artist</h2>
+                        <div class="artist-container">
+                            <div data-folder="Arjitsingh" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Arjitsingh/cover.jpg" alt="">
+                                <h3>Arjit Singh</h3>
+                            </div>
+                            <div data-folder="BPraak" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/BPraak/cover.jpg" alt="">
+                                <h3>B Praak</h3>
+                            </div>
+                            <div data-folder="AtifAslam" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/AtifAslam/cover.jpg" alt="">
+                                <h3>Atif Aslam</h3>
+                            </div>
+                            <div data-folder="Nehakakkar" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Nehakakkar/cover.jpg" alt="">
+                                <h3>Neha</h3>
+                            </div>
+                            <div data-folder="guru" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/guru/cover.jpg" alt="">
+                                <h3>Guru</h3>
+                            </div>
+                            <div data-folder="Honeysingh" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Honeysingh/cover.jpg" alt="">
+                                <h3>Honey Singh</h3>
+                            </div>
+                            <div data-folder="sonunigam" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Sonunigam/cover.jpg" alt="">
+                                <h3>Sonu Nigam</h3>
+                            </div>
+                            <div data-folder="kaka" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/kaka/cover.jpg" alt="">
+                                <h3>Kaka</h3>
+                            </div>
+                            <div data-folder="Shreyaghoshal" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Shreyaghoshal/cover.jpg" alt="">
+                                <h3>Shreya Ghoshal</h3>
+                            </div>
+                            <div data-folder="Arrahman" class="artist-card" onclick="displayPlaylit();">
+                                <img src="songs/Arrahman/cover.jpg" alt="">
+                                <h3>A R Rahman</h3>
+                            </div>
+                        </div>
+                        <br>
+                        <h2 style="margin: 20px;">Category</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+
+</html>

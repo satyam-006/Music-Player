@@ -1,0 +1,204 @@
+.animated-heading {
+    animation: slideRight 1.5s ease forwards;
+  }
+  
+  @keyframes slideRight {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* music track animation */
+  #spans{
+
+    position: relative;
+    margin: 0px auto;
+    top: 20%;
+    
+
+}
+
+#spans span{
+
+    width:20px;
+
+    height:30px;
+
+    margin-left: 1px;
+
+    background-color: #ACF;
+
+    display: inline-block;
+
+    transform-style:preserve-3d;
+
+    animation: music 1.5s infinite ease-in-out;
+
+}
+
+#spans span:nth-of-type(2){
+
+    animation-delay: 0.2s;   
+
+}
+
+#spans span:nth-of-type(3){
+
+    animation-delay: .4s;
+
+}
+
+#spans span:nth-of-type(4){
+
+    animation-delay: .6s;
+
+}
+
+#spans span:nth-of-type(5){
+
+    animation-delay:.8s;
+
+}
+
+#spans span:nth-of-type(6){
+
+    animation-delay:1s;
+
+}
+
+#spans span:nth-of-type(7){
+
+    animation-delay:1.2s;
+
+}
+
+#spans span:nth-of-type(8){
+
+    animation-delay:1.4s;
+
+}
+
+#spans span:nth-of-type(9){
+
+    animation-delay:1.6s;
+
+}
+
+#spans span:last-of-type{
+
+    animation-delay: 1.8s;
+
+}
+
+@keyframes music{
+
+    0%{
+
+        height: 50px;
+
+        background-color: #135;
+
+    }
+
+    
+
+    25%{
+
+    height:75px;
+
+    transform:translateZ(30px);
+
+    background-color: #963;
+
+    }
+
+    
+
+    50%{
+
+        height: 100px;
+
+        background-color: #246;
+
+}
+
+    75%{
+
+        background-color: #135;
+
+}
+
+        
+
+}
+
+
+
+
+
+
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+    
+  
+  .playbtn {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  
+  
+  .playbtn::before {
+    content: "";
+    width: 110%;
+    height: 106%;
+    border-radius: 50%;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #f82c58, #941f38 43%, #611324);
+      position: absolute;
+      z-index: -1;
+      top: -2%;
+      left: -5%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .playbtn::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #f82c58, #941f38 43%, #611324);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+    border-radius: 50%;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  

@@ -1,0 +1,165 @@
+@media only screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .playbtn {
+    display: none;
+  }
+
+  .left {
+    width: 100vw;
+    height: 500px;
+  }
+
+  .left .card {
+    height: 460px;
+    width: 60vw;
+    margin: auto;
+    margin-top: 70px;
+  }
+
+  #spans span {
+
+    width: 15px;
+  }
+
+  .seekbar .seek {
+    width: 40%;
+    margin: 0px 0px;
+    left: 150px;
+  }
+
+  .right {
+    width: 100vw;
+  }
+
+  .main {
+    height: 80vh;
+    width: 100vw;
+  }
+
+  .artcon {
+    width: 100vw;
+    margin-left: 18px
+  }
+
+  .artcon h1 {
+    margin-left: 40px;
+    font-size: 40px;
+  }
+
+  .artcon p {
+    margin-left: 40px;
+  }
+
+  .artcon h2 {
+    margin: 30px 40px 15px;
+  }
+
+  .artist-container {
+    width: 60vw;
+    margin-left: 60px;
+  }
+
+  .back {
+    margin: 20px 40px;
+  }
+
+  .library {
+    margin: 15px 40px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 16%;
+  }
+
+  .container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .left {
+    width: 100vw;
+    height: 500px;
+  }
+
+  .left .card {
+    height: 450px;
+    width: 300px; 
+    margin: auto;
+    margin-top: 70px;
+  }
+
+  .seekbar .seek {
+    width: 35%;
+    margin: 0px 0px;
+    left: 230px;
+  }
+
+  .playbtn {
+    display: none;
+  }
+
+  .right {
+    width: 100vw;
+  }
+
+  .main {
+    height: 80vh;
+    width: 100vw;
+  }
+
+  .artcon {
+    width: 95vw;
+    margin-left: 40px
+  }
+
+  .artcon h1 {
+    margin-left: 40px;
+    font-size: 50px;
+  }
+
+  .artcon p {
+    margin-left: 40px;
+  }
+
+  .artcon h2 {
+    margin: 30px 40px 15px;
+  }
+
+  .artist-container {
+    width: 80vw;
+    margin-left: 40px;
+  }
+
+  .back {
+    margin: 20px 40px;
+  }
+
+  .library {
+    margin: 15px 40px;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1440px){
+  
+}
