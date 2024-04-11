@@ -62,6 +62,7 @@
   .artcon p {
     margin-left: 40px;
     word-wrap: break-word;
+    word-spacing: 4px;
   }
 
   .artcon h2 {
