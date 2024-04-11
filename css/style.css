@@ -37,6 +37,7 @@ body {
     margin: 70px 60px;
     border-radius: 30px;
     padding: 20px;
+    position: relative;
 }
 
 .card .img {
@@ -102,7 +103,7 @@ body {
     border-radius: 5px;
     position: absolute;
     cursor: pointer;
-    left: 122px;
+    left: 65px;
     margin: 0px 5px;
 }
 
