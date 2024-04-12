@@ -23,8 +23,8 @@
   }
 
   .left .card {
-    height: 460px;
-    width: 60vw;
+    height: 450px;
+    width: 300px;
     margin: auto;
     margin-top: 70px;
   }
@@ -32,10 +32,6 @@
   #spans span {
 
     width: 15px;
-  }
-
-  .seekbar .seek {
-    width: 38vw;
   }
 
   .right {
@@ -49,7 +45,8 @@
 
   .artcon {
     width: 100vw;
-    margin-left: 18px
+    margin-left: 18px;
+    height: 100vh;
   }
 
   .artcon h1 {
