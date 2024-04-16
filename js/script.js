@@ -60,7 +60,7 @@ async function getSongs(folder) {
 const playMusic = (track, pause = false) => {
     currentSong.src = `/${currFolder}/` + track
 
-    console.log(track)
+    // console.log(track)
     if (!pause) {
         currentSong.play()
         play.src = "img/pause.svg"
@@ -80,7 +80,7 @@ async function main() {
     await getSongs("songs/Arjitsingh")
     playMusic(songs[0], true)
 
-
+    console.log(songs)
     // Show all the songs in the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
