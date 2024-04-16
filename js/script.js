@@ -20,7 +20,7 @@ async function getSongs(folder) {
     currFolder = folder;
     let a = await fetch(`/${folder}/`)
     let response = await a.text();
-    console.log(response)
+    // console.log(response)
     let div = document.createElement("div")
     div.innerHTML = response;
     let as = div.getElementsByTagName("a")
@@ -60,6 +60,7 @@ async function getSongs(folder) {
 
 const playMusic = (track, pause = false) => {
     currentSong.src = `/${currFolder}/` + track
+
     console.log(currentSong.src)
     if (!pause) {
         currentSong.play()
@@ -77,7 +78,7 @@ const playMusic = (track, pause = false) => {
 
 async function main() {
     // Get the list of all the songs
-    await getSongs("Ae Dil Hai Mushkil.mp3")
+    await getSongs("songs/Arjitsingh")
     playMusic(songs[0], true)
 
 
@@ -256,8 +257,6 @@ function displayPlaylit(){
     let library=document.querySelector(".songList");
     Album.style.display="none";
     library.style.display="block";
-    let art=document.getElementById("artistname");
-    art.innerText="hello"
 }
 // Back funtion
 
