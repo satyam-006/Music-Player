@@ -271,20 +271,3 @@
 // // let art=document.querySelectorAll(".artist-card");
 // // //
 // // console.log(art)
-
-
-
-
-// neww
-
-// Assuming you have an array of song filenames
-var songFilenames = ["Ae Dil Hai Mushkil.mp3", "AGAR TUM SAATH HO.mp3"];
-
-// Function to load and play a song based on its filename
-function playSong(filename) {
-    var audio = new Audio("songs/Arjitsingh" + filename); // Assuming "songs" is the folder where your songs are stored
-    audio.play();
-}
-
-// Example usage: Play the first song in the array
-playSong(songFilenames[0]);
