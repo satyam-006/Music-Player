@@ -24,6 +24,7 @@ async function getSongs(folder) {
     div.innerHTML = response;
     let as = div.getElementsByTagName("a")
     songs = []
+    console.log(songs)
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
@@ -80,7 +81,7 @@ async function main() {
     await getSongs("songs/Arjitsingh")
     playMusic(songs[0], true)
 
-    console.log(songs)
+    
     // Show all the songs in the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
