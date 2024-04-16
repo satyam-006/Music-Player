@@ -165,8 +165,45 @@
             </div>
         </div>
     </div>
+    <h1>Music Player</h1>
+    <p>Song: <span id="songTitle"></span></p>
+    <audio controls id="audioPlayer">
+        <!-- You can provide a default message if the browser does not support the audio element -->
+        Your browser does not support the audio element.
+    </audio>
+    <button onclick="playNextSong()">Play Next Song</button>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
+<Script>
+    var songFilenames = ["Ae Dil Hai Mushkil.mp3", "AGAR TUM SAATH HO.mp3", "Humdard.mp3"];
+
+    // Get reference to the audio player element in HTML
+    var audioPlayer = document.getElementById("audioPlayer");
+
+    // Function to play a song based on its filename
+    function playSong(filename) {
+        audioPlayer.src = "songs/Arjitsingh/" + filename; // Assuming "songs" is the folder where your songs are stored
+        audioPlayer.play();
+
+        // Update the song title displayed on the HTML page
+        document.getElementById("songTitle").textContent = filename;
+    }
+
+    // Function to play the next song in the array
+    function playNextSong() {
+        // Get the index of the current song
+        var currentIndex = songFilenames.indexOf(document.getElementById("songTitle").textContent);
+
+        // Calculate the index of the next song
+        var nextIndex = (currentIndex + 1) % songFilenames.length;
+
+        // Play the next song
+        playSong(songFilenames[nextIndex]);
+    }
+
+    // Example usage: Play the first song in the array when the page loads
+    playSong(songFilenames[0]);
+</Script>
 
 </html>
