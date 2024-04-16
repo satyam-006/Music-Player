@@ -77,7 +77,7 @@ const playMusic = (track, pause = false) => {
 
 async function main() {
     // Get the list of all the songs
-    await getSongs("../songs/Arjitsingh")
+    await getSongs("Ae Dil Hai Mushkil.mp3")
     playMusic(songs[0], true)
 
 
