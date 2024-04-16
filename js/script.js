@@ -77,7 +77,7 @@ const playMusic = (track, pause = false) => {
 
 async function main() {
     // Get the list of all the songs
-    await getSongs("songs/Arjitsingh")
+    await getSongs("../songs/Arjitsingh")
     playMusic(songs[0], true)
 
 
