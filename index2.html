@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="music-player">
+        <h1 id="songTitle">Now Playing</h1>
+        <audio id="audioPlayer" controls></audio>
+        <div class="controls">
+            <button id="previousButton">Previous</button>
+            <button id="playPauseButton">Play/Pause</button>
+            <button id="nextButton">Next</button>
+        </div>
+        <div class="progress">
+            <div id="progress" class="progress-bar"></div>
+        </div>
+        <div class="songinfo">Song Info</div>
+        <div class="songtime">00:00</div>
+        <div class="songtime1">00:00</div>
+    </div>
+
+    <div class="songList">
+        <ul id="playlst">
+            <!-- Song list will be dynamically generated here -->
+        </ul>
+    </div>
+
+    <script>
+        // Variable Declarations
+        let currentSong = new Audio();
+        <!-- let songFilenames = ["Achha Sila Diya.mp3", "Ae Dil Hai Mushkil.mp3",
+        "AGAR TUM SAATH HO.mp3",
+        "Ajab Prem Ki Ghazab Kahani.mp3",
+        "Baarish Ki Jaaye.mp3"]; -->
+        let songTitleElement = document.getElementById("songTitle");
+
+        // Helper Functions
+        function secondsToMinutesSeconds(seconds) {
+            if (isNaN(seconds) || seconds < 0) {
+                return "00:00";
+            }
+
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+            return `${formattedMinutes}:${formattedSeconds}`;
+        }
+
+        // Main Functions
+        function playSong(filename) {
+            currentSong.src = "songs/" + filename;
+            document.querySelector(".songinfo").innerHTML = decodeURI(filename);
+            document.querySelector(".songtime").innerHTML = "00:00";
+            document.querySelector(".songtime1").innerHTML = "00:00";
+
+            songTitleElement.textContent = filename;
+
+            currentSong.play();
+        }
+
+        function playPause() {
+            if (currentSong.paused) {
+                currentSong.play();
+            } else {
+                currentSong.pause();
+            }
+        }
+
+        function playPreviousSong() {
+            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
+            var previousIndex = (currentIndex - 1 + songFilenames.length) % songFilenames.length;
+            var previousSong = songFilenames[previousIndex];
+            playSong(previousSong);
+        }
+
+        function playNextSong() {
+            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
+            var nextIndex = (currentIndex + 1) % songFilenames.length;
+            var nextSong = songFilenames[nextIndex];
+            playSong(nextSong);
+        }
+
+        // Event Listeners
+        document.getElementById("playPauseButton").addEventListener("click", playPause);
+        document.getElementById("previousButton").addEventListener("click", playPreviousSong);
+        document.getElementById("nextButton").addEventListener("click", playNextSong);
+
+        // Initialization
+        playSong(songFilenames[0]);
+
+    </script>
+</body>
+
+</html>

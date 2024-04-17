@@ -48,9 +48,9 @@
                 <h4 id="artistname"></h4>
                 <div class="playbar">
                     <i class="fa-solid fa-repeat"></i>
-                    <i class="fa-solid fa-backward-step" id="previous" onclick="playPreviousSong()"></i>
-                    <img src="img/play.svg" alt="" id="play" class="invert" onclick="playPause()">
-                    <i class="fa-solid fa-forward-step" id="next" onclick="playNextSong()"></i>
+                    <i class="fa-solid fa-backward-step" id="previous"></i>
+                    <img src="img/play.svg" alt="" id="play" class="invert">
+                    <i class="fa-solid fa-forward-step" id="next"></i>
                     <!-- <i class="fa-solid fa-volume-low"></i> -->
                     <div class="timevol">
                         <div class="volume">
@@ -87,7 +87,7 @@
                     </ul>
                 </div>
                 <div class="artcon">
-                    <div class="songList">
+                    <div class="songList" style="color: white;">
                         <div class="back" onclick="BackAlbum();">
                             <i class="fa-solid fa-circle-left"></i>
                         </div>
@@ -97,7 +97,7 @@
                                 Your Library
                             </p>
                         </div>
-                        <ul>
+                        <ul id="playlst" style="color: white;">
                         </ul>
                     </div>
 
@@ -160,67 +160,109 @@
                 </div>
             </div>
         </div>
+        <audio controls id="audioPlayer" style="display: none;"></audio>
     </div>
-    <audio controls id="audioPlayer" style="display: none;">
-    </audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
     <script>
-        let songFilenames = ["Achha Sila Diya.mp3",
-            "Ae Dil Hai Mushkil.mp3",
-            "AGAR TUM SAATH HO.mp3",
-            "Ajab Prem Ki Ghazab Kahani.mp3",
-            "Baarish Ki Jaaye.mp3",
-            "Chhod Diya.mp3",
-            "Dekhte Dekhte.mp3",
-            "Dhoke Pyaar Ke.mp3",
-            "Dhoor Pendi.mp3",
-            "Dil Meri Na Sune.mp3",
-            "Dil Tod Ke Official Song.mp3",
-            "Filhaal 2.mp3",
-            "Hamari Adhuri Kahani.mp3",
-            "Har Kisi Ko Nahi Milta.mp3",
-            "Hawayein.mp3",
-            "High Rated Gabru.mp3",
-            "Humdard.mp3",
-            "ISHARE TERE (2).mp3",
-            "ISHARE TERE.mp3",
-            "Ishq Tera.mp3",
-            "Jee Ve Sohneya Jee.mp3",
-            "Jeene Laga Hoon.mp3",
-            "Kale Je Libaas Di.mp3",
-            "Kesariya.mp3",
-            "KHAIRIYAT.mp3",
-            "Kuch Bhi Ho Jaye.mp3",
-            "Kuch Is Tarah.mp3",
-            "Kya Loge Tum.mp3",
-            "Lahore.mp3",
-            "Main Rang Sharbaton Ka.mp3",
-            "Mann Bharrya.mp3",
-            "Mareez - E - Ishq.mp3",
-            "Mitti De Tibbe.mp3",
-            "Moonrise.mp3",
-            "Naach Meri Rani.mp3",
-            "New Punjabi Songs 2021.mp3",
-            "Parindey.mp3",
-            "Pehli.mp3",
-            "Phir Bhi Tumko Chaahungi.mp3",
-            "Piya O Re Piya.mp3",
-            "Qismat.mp3",
-            "Rafta Rafta.mp3",
-            "Rona Chadita.mp3",
-            "SAARI DUNIYA JALAA DENGE.mp3",
-            "Samjhawan.mp3",
-            "Soch Na Sake.mp3",
-            "Tera Yaar Hoon Main.mp3",
-            "Tere Bin.mp3",
-            "Tere Sang Yaara.mp3",
-            "Thodi Jagah.mp3",
-            "Tujhe Kitna Chahne Lage.mp3",
-            "UDD GAYA.mp3",
-            "Yaar Ka Sataya Hua Hai.mp3",
-            "Zohrajabeen.mp3"];
         let currentSong = new Audio();
+        const audioPlayer = document.getElementById("audioPlayer")
+        let songFilenames = ["Achha Sila Diya.mp3",
+        "Ae Dil Hai Mushkil.mp3",
+        "AGAR TUM SAATH HO.mp3",
+        "Ajab Prem Ki Ghazab Kahani.mp3",
+        "Baarish Ki Jaaye.mp3",
+        "Chhod Diya.mp3",
+        "Dekhte Dekhte.mp3",
+        "Dhoke Pyaar Ke.mp3",
+        "Dhoor Pendi.mp3",
+        "Dil Meri Na Sune.mp3",
+        "Dil Tod Ke Official Song.mp3",
+        "Filhaal 2.mp3",
+        "Hamari Adhuri Kahani.mp3",
+        "Har Kisi Ko Nahi Milta.mp3",
+        "Hawayein.mp3",
+        "High Rated Gabru.mp3",
+        "Humdard.mp3",
+        "ISHARE TERE (2).mp3",
+        "ISHARE TERE.mp3",
+        "Ishq Tera.mp3",
+        "Jee Ve Sohneya Jee.mp3",
+        "Jeene Laga Hoon.mp3",
+        "Kale Je Libaas Di.mp3",
+        "Kesariya.mp3",
+        "KHAIRIYAT.mp3",
+        "Kuch Bhi Ho Jaye.mp3",
+        "Kuch Is Tarah.mp3",
+        "Kya Loge Tum.mp3",
+        "Lahore.mp3",
+        "Main Rang Sharbaton Ka.mp3",
+        "Mann Bharrya.mp3",
+        "Mareez - E - Ishq.mp3",
+        "Mitti De Tibbe.mp3",
+        "Moonrise.mp3",
+        "Naach Meri Rani.mp3",
+        "New Punjabi Songs 2021.mp3",
+        "Parindey.mp3",
+        "Pehli.mp3",
+        "Phir Bhi Tumko Chaahungi.mp3",
+        "Piya O Re Piya.mp3",
+        "Qismat.mp3",
+        "Rafta Rafta.mp3",
+        "Rona Chadita.mp3",
+        "SAARI DUNIYA JALAA DENGE.mp3",
+        "Samjhawan.mp3",
+        "Soch Na Sake.mp3",
+        "Tera Yaar Hoon Main.mp3",
+        "Tere Bin.mp3",
+        "Tere Sang Yaara.mp3",
+        "Thodi Jagah.mp3",
+        "Tujhe Kitna Chahne Lage.mp3",
+        "UDD GAYA.mp3",
+        "Yaar Ka Sataya Hua Hai.mp3",
+        "Zohrajabeen.mp3"];
+        let songTitleElement = document.getElementById("songTitle");
+
+        const playlist = document.getElementById("playlst");
+
+
+        // Select the song list element
+        const songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
+
+        // Iterate over the array of songs and create song elements
+        songFilenames.forEach(song => {
+            // Create a new list item element
+            const li = document.createElement('li');
+            // Set attributes and content for the list item
+            li.innerHTML = `
+    <img class="invert" width="34" src="img/music.svg" alt="">
+        <div class="info">
+            <div>${song}</div>
+            <div></div>
+        </div>
+        <div class="playnow">
+            <span style="color: white;">Play Now</span>
+            <img class="invert" src="img/play1.svg" alt="" id="listplay">
+        </div>
+        `;
+            // Set data source attribute
+            li.setAttribute('data-src', song);
+            // Add appropriate class
+            li.classList.add('song');
+            // Append the list item to the song list
+            songUL.appendChild(li);
+        });
+
+
+        // Add event listener to dynamically generated song elements
+        playlist.addEventListener('click', function (event) {
+            if (event.target.classList.contains('song')) {
+                const audioSrc = event.target.getAttribute('data-src');
+                audioPlayer.src = "songs/" + audioSrc;
+                audioPlayer.play();
+            }
+        });
+
         function secondsToMinutesSeconds(seconds) {
             if (isNaN(seconds) || seconds < 0) {
                 return "00:00";
@@ -234,45 +276,20 @@
 
             return `${formattedMinutes}:${formattedSeconds}`;
         }
-        // Get reference to the audio player element in HTML
-        currentSong = document.getElementById("audioPlayer");
-        let songTitleElement = document.getElementById("songTitle");
-
-        // Function to play a song based on its filename
         function playSong(filename) {
-            currentSong.src = "songs/" + filename; // Assuming "songs" is the folder where your songs are stored
             function presstoplay() {
                 currentSong.play();
 
             }
+            currentSong.src = "songs/" + filename;
             document.querySelector(".songinfo").innerHTML = decodeURI(filename)
             document.querySelector(".songtime").innerHTML = "00:00"
             document.querySelector(".songtime1").innerHTML = "00:00"
 
 
-            // Update the song title displayed on the HTML page
+
             songTitleElement.textContent = filename;
         }
-
-        // Function to play the next song in the array
-        function playNextSong() {
-            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
-            var nextIndex = (currentIndex + 1) % songFilenames.length;
-            playSong(songFilenames[nextIndex]);
-            currentSong.play();
-        }
-
-        // Function to play the previous song in the array
-        function playPreviousSong() {
-            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
-            var previousIndex = (currentIndex - 1 + songFilenames.length) % songFilenames.length;
-            playSong(songFilenames[previousIndex]);
-            currentSong.play();
-        }
-
-        // Example usage: Play the first song in the array when the page loads
-        playSong(songFilenames[0]);
-
 
         // Listen for timeupdate event
         currentSong.addEventListener("timeupdate", () => {
@@ -294,33 +311,18 @@
             currentSong.currentTime = ((currentSong.duration) * percent) / 100;
         })
 
-        //const songListItems = Array.from(songFilenames);
-        //console.log(songListItems)
-        //const songLinks = songFilenames;
-        //songListItems.forEach((listItem, index) => {
+        // Main Functions
+        function playSong(filename) {
+            currentSong.src = "songs/" + filename;
+            document.querySelector(".songinfo").innerHTML = decodeURI(filename);
+            document.querySelector(".songtime").innerHTML = "00:00";
+            document.querySelector(".songtime1").innerHTML = "00:00";
 
-        // listItem.addEventListener("click", () => {
-        //if (index >= 0 && index < songLinks.length) {
-        //    play(songLinks[index]);
-        // } else {
-        //    console.error("Index out of bounds or link not found.");
-        //}
-        // });
-        //});
+            songTitleElement.textContent = filename;
 
-        const songListElement = document.querySelector(".info");
-            console.log(songListElement)
-        // Create list items for each song filename and append them to the song list element
-        songFilenames.forEach((filename, index) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = filename;
-            // Add click event listener to play the song corresponding to the clicked filename
-            listItem.addEventListener("click", () => {
-                play(filename);
-            });
-            songListElement.appendChild(listItem);
-        });
-        // Function to toggle play/pause
+        }
+
+
         function playPause() {
             if (currentSong.paused) {
                 currentSong.play();
@@ -332,7 +334,44 @@
                 play1.src = "img/play.svg"
             }
         }
+        function playPreviousSong() {
+            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
+            var previousIndex = (currentIndex - 1 + songFilenames.length) % songFilenames.length;
+            var previousSong = songFilenames[previousIndex];
+            playSong(previousSong);
+            if (currentSong.paused) {
+                currentSong.play();
+                play.src = "img/pause.svg"
+                play1.src = "img/pause.svg"
+            } else {
+                currentSong.pause();
+                play.src = "img/play.svg"
+                play1.src = "img/play.svg"
+            }
+        }
 
+        function playNextSong() {
+            var currentIndex = songFilenames.indexOf(songTitleElement.textContent);
+            var nextIndex = (currentIndex + 1) % songFilenames.length;
+            var nextSong = songFilenames[nextIndex];
+            playSong(nextSong);
+            if (currentSong.paused) {
+                currentSong.play();
+                play.src = "img/pause.svg"
+                play1.src = "img/pause.svg"
+            } else {
+                currentSong.pause();
+                play.src = "img/play.svg"
+                play1.src = "img/play.svg"
+            }
+        }
+
+        // Event Listeners
+        document.getElementById("play").addEventListener("click", playPause);
+        document.getElementById("previous").addEventListener("click", playPreviousSong);
+        document.getElementById("next").addEventListener("click", playNextSong);
+        // Initialization
+        playSong(songFilenames[0]);
     </script>
 </body>
 
