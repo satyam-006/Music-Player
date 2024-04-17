@@ -168,59 +168,59 @@
         let currentSong = new Audio();
         const audioPlayer = document.getElementById("audioPlayer")
         let songFilenames = ["Achha Sila Diya.mp3",
-        "Ae Dil Hai Mushkil.mp3",
-        "AGAR TUM SAATH HO.mp3",
-        "Ajab Prem Ki Ghazab Kahani.mp3",
-        "Baarish Ki Jaaye.mp3",
-        "Chhod Diya.mp3",
-        "Dekhte Dekhte.mp3",
-        "Dhoke Pyaar Ke.mp3",
-        "Dhoor Pendi.mp3",
-        "Dil Meri Na Sune.mp3",
-        "Dil Tod Ke Official Song.mp3",
-        "Filhaal 2.mp3",
-        "Hamari Adhuri Kahani.mp3",
-        "Har Kisi Ko Nahi Milta.mp3",
-        "Hawayein.mp3",
-        "High Rated Gabru.mp3",
-        "Humdard.mp3",
-        "ISHARE TERE (2).mp3",
-        "ISHARE TERE.mp3",
-        "Ishq Tera.mp3",
-        "Jee Ve Sohneya Jee.mp3",
-        "Jeene Laga Hoon.mp3",
-        "Kale Je Libaas Di.mp3",
-        "Kesariya.mp3",
-        "KHAIRIYAT.mp3",
-        "Kuch Bhi Ho Jaye.mp3",
-        "Kuch Is Tarah.mp3",
-        "Kya Loge Tum.mp3",
-        "Lahore.mp3",
-        "Main Rang Sharbaton Ka.mp3",
-        "Mann Bharrya.mp3",
-        "Mareez - E - Ishq.mp3",
-        "Mitti De Tibbe.mp3",
-        "Moonrise.mp3",
-        "Naach Meri Rani.mp3",
-        "New Punjabi Songs 2021.mp3",
-        "Parindey.mp3",
-        "Pehli.mp3",
-        "Phir Bhi Tumko Chaahungi.mp3",
-        "Piya O Re Piya.mp3",
-        "Qismat.mp3",
-        "Rafta Rafta.mp3",
-        "Rona Chadita.mp3",
-        "SAARI DUNIYA JALAA DENGE.mp3",
-        "Samjhawan.mp3",
-        "Soch Na Sake.mp3",
-        "Tera Yaar Hoon Main.mp3",
-        "Tere Bin.mp3",
-        "Tere Sang Yaara.mp3",
-        "Thodi Jagah.mp3",
-        "Tujhe Kitna Chahne Lage.mp3",
-        "UDD GAYA.mp3",
-        "Yaar Ka Sataya Hua Hai.mp3",
-        "Zohrajabeen.mp3"];
+            "Ae Dil Hai Mushkil.mp3",
+            "AGAR TUM SAATH HO.mp3",
+            "Ajab Prem Ki Ghazab Kahani.mp3",
+            "Baarish Ki Jaaye.mp3",
+            "Chhod Diya.mp3",
+            "Dekhte Dekhte.mp3",
+            "Dhoke Pyaar Ke.mp3",
+            "Dhoor Pendi.mp3",
+            "Dil Meri Na Sune.mp3",
+            "Dil Tod Ke Official Song.mp3",
+            "Filhaal 2.mp3",
+            "Hamari Adhuri Kahani.mp3",
+            "Har Kisi Ko Nahi Milta.mp3",
+            "Hawayein.mp3",
+            "High Rated Gabru.mp3",
+            "Humdard.mp3",
+            "ISHARE TERE (2).mp3",
+            "ISHARE TERE.mp3",
+            "Ishq Tera.mp3",
+            "Jee Ve Sohneya Jee.mp3",
+            "Jeene Laga Hoon.mp3",
+            "Kale Je Libaas Di.mp3",
+            "Kesariya.mp3",
+            "KHAIRIYAT.mp3",
+            "Kuch Bhi Ho Jaye.mp3",
+            "Kuch Is Tarah.mp3",
+            "Kya Loge Tum.mp3",
+            "Lahore.mp3",
+            "Main Rang Sharbaton Ka.mp3",
+            "Mann Bharrya.mp3",
+            "Mareez - E - Ishq.mp3",
+            "Mitti De Tibbe.mp3",
+            "Moonrise.mp3",
+            "Naach Meri Rani.mp3",
+            "New Punjabi Songs 2021.mp3",
+            "Parindey.mp3",
+            "Pehli.mp3",
+            "Phir Bhi Tumko Chaahungi.mp3",
+            "Piya O Re Piya.mp3",
+            "Qismat.mp3",
+            "Rafta Rafta.mp3",
+            "Rona Chadita.mp3",
+            "SAARI DUNIYA JALAA DENGE.mp3",
+            "Samjhawan.mp3",
+            "Soch Na Sake.mp3",
+            "Tera Yaar Hoon Main.mp3",
+            "Tere Bin.mp3",
+            "Tere Sang Yaara.mp3",
+            "Thodi Jagah.mp3",
+            "Tujhe Kitna Chahne Lage.mp3",
+            "UDD GAYA.mp3",
+            "Yaar Ka Sataya Hua Hai.mp3",
+            "Zohrajabeen.mp3"];
         let songTitleElement = document.getElementById("songTitle");
 
         const playlist = document.getElementById("playlst");
@@ -372,6 +372,25 @@
         document.getElementById("next").addEventListener("click", playNextSong);
         // Initialization
         playSong(songFilenames[0]);
+        // volume function
+        function displayNoneVolumebar() {
+            let volumeBar = document.querySelector(".volume-input");
+            if (volumeBar.style.opacity == 0) {
+                volumeBar.style.opacity = "1";
+            }
+            else {
+                volumeBar.style.opacity = "0";
+            }
+        }
+        function displayVolumebar() {
+            let volumeBar = document.querySelector(".volume-input");
+            if (volumeBar.style.opacity == 1) {
+                volumeBar.style.opacity == "0"
+            }
+            else {
+                volumeBar.style.opacity = "1";
+            }
+        }
     </script>
 </body>
 

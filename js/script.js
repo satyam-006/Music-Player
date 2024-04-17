@@ -233,25 +233,25 @@
 // // // }
 
 
-// // // // volume function
-// // // function displayNoneVolumebar() {
-// // //     let volumeBar = document.querySelector(".volume-input");
-// // //     if (volumeBar.style.opacity == 0) {
-// // //         volumeBar.style.opacity = "1";
-// // //     }
-// // //     else {
-// // //         volumeBar.style.opacity = "0";
-// // //     }
-// // // }
-// // // function displayVolumebar() {
-// // //     let volumeBar = document.querySelector(".volume-input");
-// // //     if (volumeBar.style.opacity == 1) {
-// // //         volumeBar.style.opacity == "0"
-// // //     }
-// // //     else {
-// // //         volumeBar.style.opacity = "1";
-// // //     }
-// // // }
+// // volume function
+// function displayNoneVolumebar() {
+//     let volumeBar = document.querySelector(".volume-input");
+//     if (volumeBar.style.opacity == 0) {
+//         volumeBar.style.opacity = "1";
+//     }
+//     else {
+//         volumeBar.style.opacity = "0";
+//     }
+// }
+// function displayVolumebar() {
+//     let volumeBar = document.querySelector(".volume-input");
+//     if (volumeBar.style.opacity == 1) {
+//         volumeBar.style.opacity == "0"
+//     }
+//     else {
+//         volumeBar.style.opacity = "1";
+//     }
+// }
 
 // // // // playlist display function
 // // // // function displayPlaylit(){
