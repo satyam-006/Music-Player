@@ -20,7 +20,6 @@
         <div class="left">
             <div class="card">
                 <div class="img">
-                    <img src="/public/img/music.jpg" alt="">
                     <!-- <div id="spans">
 
                         <span></span>
@@ -161,13 +160,11 @@
                 </div>
             </div>
         </div>
-        <audio controls id="audioPlayer" style="display: none;"></audio>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="js/script.js"></script> -->
     <script>
         let currentSong = new Audio();
-        const audioPlayer = document.getElementById("audioPlayer")
         let songFilenames = ["Achha Sila Diya.mp3",
             "Ae Dil Hai Mushkil.mp3",
             "AGAR TUM SAATH HO.mp3",
@@ -259,8 +256,8 @@
         playlist.addEventListener('click', function (event) {
             if (event.target.classList.contains('song')) {
                 const audioSrc = event.target.getAttribute('data-src');
-                audioPlayer.src = "songs/" + audioSrc;
-                audioPlayer.play();
+                currentSong.src = "songs/" + audioSrc;
+                currentSong.play();
             }
         });
 
