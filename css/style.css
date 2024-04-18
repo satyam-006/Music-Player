@@ -48,7 +48,7 @@ body {
     height: 280px;
     border-radius: 30px;
     /* background-color: #ACF; */
-    background-image: url("img/music.jpg");
+    background-image: url("../img/music.jpg");
     display: flex;
     align-items: center;
 }
