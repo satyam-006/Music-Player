@@ -36,7 +36,7 @@
 }
 
 .songList{
-    /* display: none; */
+    display: none;
     /* visibility: hidden; */
 }
 .songList ul {

@@ -80,22 +80,24 @@
                 <div class="nav">
                     <div class="logo">MX Tune</div>
                     <ul>
-                        <input type="text" id="searchbar">
+                        <input type="text" id="searchbar" placeholder="search...">
                         <li><i class="fa-solid fa-magnifying-glass"></i></li>
                         <li><i class="fa-regular fa-user"></i></li>
                         <li>EN</li>
                     </ul>
                 </div>
                 <div class="artcon">
-                    <div class="songList" style="color: white;">
-                        <div class="back" onclick="BackAlbum();">
-                            <i class="fa-solid fa-circle-left"></i>
-                        </div>
-                        <div class="library">
-                            <img class="invert" src="img/playlist.svg" alt="">
-                            <p>
-                                Your Library
-                            </p>
+                    <div class="songList" style="color: white;display: none;">
+                        <div>
+                            <div class="back" onclick="BackAlbum();">
+                                <i class="fa-solid fa-circle-left"></i>
+                            </div>
+                            <div class="library">
+                                <img class="invert" src="img/playlist.svg" alt="">
+                                <p>
+                                    Your Library
+                                </p>
+                            </div>
                         </div>
                         <ul id="playlst" style="color: white;">
                         </ul>
@@ -104,11 +106,11 @@
 
 
 
-                    <div class="homepg" style="display: none;">
+                    <div class="homepg">
                         <h1 class="animated-heading">Play Your <br>Beloved Music</h1>
                         <p>Selected Music From Various genres, artists and composers.</p>
                         <p>Play now completely Free and convenient</p>
-                        <div class="playbtn">
+                        <div class="playbtn" id="extraplay">
                             <img src="img/play.svg" alt="" id="play1">
                         </div>
                         <h2>Popular Artist</h2>
@@ -162,8 +164,8 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="js/script.js"></script> -->
-    <script>
+    <script src="js/script.js"></script>
+    <!-- <script>
         let currentSong = new Audio();
         let songFilenames = ["Achha Sila Diya.mp3",
             "Ae Dil Hai Mushkil.mp3",
@@ -249,17 +251,15 @@
             li.classList.add('song');
             // Append the list item to the song list
             songUL.appendChild(li);
-        });
 
-
-        // Add event listener to dynamically generated song elements
-        playlist.addEventListener('click', function (event) {
-            if (event.target.classList.contains('song')) {
-                const audioSrc = event.target.getAttribute('data-src');
-                currentSong.src = "songs/" + audioSrc;
+            li.addEventListener('click', () => {
+                playSong(song);
                 currentSong.play();
-            }
+                document.getElementById("play").src = "img/pause.svg";
+                document.getElementById("play1").src = "img/pause.svg";
+            });
         });
+
 
         function secondsToMinutesSeconds(seconds) {
             if (isNaN(seconds) || seconds < 0) {
@@ -274,20 +274,7 @@
 
             return `${formattedMinutes}:${formattedSeconds}`;
         }
-        function playSong(filename) {
-            function presstoplay() {
-                currentSong.play();
 
-            }
-            currentSong.src = "songs/" + filename;
-            document.querySelector(".songinfo").innerHTML = decodeURI(filename)
-            document.querySelector(".songtime").innerHTML = "00:00"
-            document.querySelector(".songtime1").innerHTML = "00:00"
-
-
-
-            songTitleElement.textContent = filename;
-        }
 
         // Listen for timeupdate event
         currentSong.addEventListener("timeupdate", () => {
@@ -317,7 +304,6 @@
             document.querySelector(".songtime1").innerHTML = "00:00";
 
             songTitleElement.textContent = filename;
-
         }
 
 
@@ -363,11 +349,38 @@
                 play1.src = "img/play.svg"
             }
         }
+        // Add an event to volume
+        document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+            // console.log("Setting volume to", e.target.value, "/ 100")
+            currentSong.volume = parseInt(e.target.value) / 100
+            if (currentSong.volume > 0) {
+                document.querySelector(".volume-svg").src = document.querySelector(".volume-svg").src.replace("mute.svg", "volume.svg")
+            }
+            else if (currentSong.volume == 0) {
+                document.querySelector(".volume-svg").src = document.querySelector(".volume-svg").src.replace("volume.svg", "mute.svg")
+            }
+        })
+
+        // Add event listener to mute the track
+        document.querySelector(".volume-svg").addEventListener("click", e => {
+            if (e.target.src.includes("volume.svg")) {
+                e.target.src = e.target.src.replace("volume.svg", "mute.svg")
+                currentSong.volume = 0;
+                document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
+            }
+            else {
+                e.target.src = e.target.src.replace("mute.svg", "volume.svg")
+                currentSong.volume = .10;
+                document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
+            }
+
+        })
 
         // Event Listeners
         document.getElementById("play").addEventListener("click", playPause);
         document.getElementById("previous").addEventListener("click", playPreviousSong);
         document.getElementById("next").addEventListener("click", playNextSong);
+        document.getElementById("extraplay").addEventListener("click", playPause);
         // Initialization
         playSong(songFilenames[0]);
         // volume function
@@ -389,7 +402,26 @@
                 volumeBar.style.opacity = "1";
             }
         }
-    </script>
+
+
+
+    </script> -->
+    <!-- <script>
+        function displayPlaylit() {
+            let Album = document.querySelector(".homepg");
+            let library = document.querySelector(".songList");
+            Album.style.display = "none";
+            library.style.display = "block";
+        }
+
+        function BackAlbum() {
+            let Album = document.querySelector(".homepg");
+            let library = document.querySelector(".songList");
+            Album.style.display = "block";
+            library.style.display = "none";
+
+        }
+    </script> -->
 </body>
 
 </html>
